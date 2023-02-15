@@ -9,9 +9,9 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-     private ActivityMainBinding binding;
-    public ArrayList<ClipData.Item> itemArrayList;
-    ItemAdaptor itemAdaptor;
+//     private ActivityMainBinding binding;
+//    public ArrayList<ClipData.Item> itemArrayList;
+//    ItemAdaptor itemAdaptor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
