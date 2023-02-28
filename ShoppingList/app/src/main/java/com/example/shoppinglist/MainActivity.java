@@ -24,5 +24,13 @@ public class MainActivity extends AppCompatActivity {
         getData();
 
     }
-    public void getData(){}
+        public void getData(){
+        try {
+            SQLiteDatabase sqLiteDatabase = this.openOrCreateDatabase("Items",MODE_PRIVATE,null);
+            Cursor cursor = sqLiteDatabase.rawQuery("SELECT * FROM items",null);
+            int idIx = cursor.getColumnIndex("id");
+            int nameIx = cursor.getColumnIndex("name");
+            int priceIx = cursor.getColumnIndex("Price");
+            int quantityIx = cursor.getColumnIndex("quantity");
+            int isFavoriteIx = cursor.getColumnIndex("is_favorite");}
 }
