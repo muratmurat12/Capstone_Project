@@ -32,5 +32,15 @@ public class MainActivity extends AppCompatActivity {
             int nameIx = cursor.getColumnIndex("name");
             int priceIx = cursor.getColumnIndex("Price");
             int quantityIx = cursor.getColumnIndex("quantity");
-            int isFavoriteIx = cursor.getColumnIndex("is_favorite");}
+            int isFavoriteIx = cursor.getColumnIndex("is_favorite");
+
+              while (cursor.moveToNext()){
+                int id = cursor.getInt(idIx);
+                String name = cursor.getString(nameIx);
+                String price = cursor.getString(priceIx);
+                String quantity = cursor.getString(quantityIx);
+                int isFavorite = cursor.getInt(isFavoriteIx);
+                Item item = new Item(id,name,price,quantity,isFavorite);
+                itemArrayList.add(item);
+            }
 }
