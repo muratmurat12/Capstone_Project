@@ -19,11 +19,9 @@ class MainActivity : AppCompatActivity() {
         editTextName = findViewById(R.id.editTextName)
         textViewName = findViewById(R.id.textViewName)
         buttonSave =findViewById(R.id.buttonSave)
-        buttonSave.setOnClickListener(object : View.OnClickListener {
-            override fun onClick(v: View?) {
-                val name = editTextName.text.toString().trim()
-                textViewName.text ="Hello, $name"
-            }
-        })
+        buttonSave.setOnClickListener {
+            val name = editTextName.text.toString().trim()
+            textViewName.text = "Hello, $name"
+        }
     }
 }
