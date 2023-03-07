@@ -18,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         buttonSave.setOnClickListener {
-            val name = editTextName.text.toString().trim()
-            textViewName.text = "Hello, $name"
+
+            textViewName.text = "Hello, ${editTextName.text.toString().trim() }"
         }
     }
 }
