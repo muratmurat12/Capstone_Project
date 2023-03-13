@@ -1,35 +1,52 @@
 package com.example.cryptoapp
 
+import CoinViewModel
+
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.example.cryptoapp.api.ApiFactory
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
+import androidx.lifecycle.Observer
 
-import io.reactivex.schedulers.Schedulers
+import androidx.lifecycle.ViewModelProviders
+
+//import kotlinx.android.synthetic.main.activity_coin_detail.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val compositeDisposable = CompositeDisposable()
+     private lateinit var viewModel: CoinViewModel
+
+//    private val compositeDisposable = CompositeDisposable()
+//
+//    override fun onCreate(savedInstanceState: Bundle?) {
+//        super.onCreate(savedInstanceState)
+//        setContentView(R.layout.activity_main)
+//        val disposable = ApiFactory.apiService.getTopCoinsInfo()
+//            .subscribeOn(Schedulers.io())
+//            .observeOn(AndroidSchedulers.mainThread())
+//            .subscribe({
+//                   Log.d("TEST_OF_LOADING_DATA", "Success: $it")
+//            },{
+//                   Log.d("TEST_OF_LOADING_DATA", "Failure: ${it.message}")
+//            })
+//        compositeDisposable.add(disposable)
+//
+//    }
+//
+//    override fun onDestroy() {
+//        super.onDestroy()
+//        compositeDisposable.dispose()
+//    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val disposable = ApiFactory.apiService.getTopCoinsInfo()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
-            .subscribe({
-                   Log.d("TEST_OF_LOADING_DATA", "Success: $it")
-            },{
-                   Log.d("TEST_OF_LOADING_DATA", "Failure: ${it.message}")
-            })
-        compositeDisposable.add(disposable)
+        viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
+        viewModel.loadData()
+        viewModel.priceList.observe(this,Observer{
+            Log.d("TEST_OF_LOADING_DATA", "Success in activity: $it")
+        })
 
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        compositeDisposable.dispose()
+
     }
 }
