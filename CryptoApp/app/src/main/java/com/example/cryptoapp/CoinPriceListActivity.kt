@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProviders
 
 //import kotlinx.android.synthetic.main.activity_coin_detail.*
 
-class MainActivity : AppCompatActivity() {
+class CoinPriceListActivity : AppCompatActivity() {
 
      private lateinit var viewModel: CoinViewModel
 
@@ -37,7 +37,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_coin_price_list)
         viewModel = ViewModelProviders.of(this)[CoinViewModel::class.java]
         viewModel.loadData()
         viewModel.priceList.observe(this,Observer{
