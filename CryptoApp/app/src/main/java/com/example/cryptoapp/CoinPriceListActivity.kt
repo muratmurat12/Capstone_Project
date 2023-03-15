@@ -19,10 +19,10 @@ class CoinPriceListActivity : AppCompatActivity() {
         val adapter = CoinInfoAdapter(this)
         adapter.onCoinClickListener = object : CoinInfoAdapter.OnCoinClickListener {
             override fun onCoinClick(coinPriceInfo: CoinPriceInfo) {
-//                val intent = CoinDetailActivity.newIntent(
-//                    this@CoinPriceListActivity,
-//                    coinPriceInfo.fromSymbol
-//                )
+                val intent = CoinDetailActivity.newIntent(
+                    this@CoinPriceListActivity,
+                    coinPriceInfo.fromSymbol
+                )
                 startActivity(intent)
             }
         }
