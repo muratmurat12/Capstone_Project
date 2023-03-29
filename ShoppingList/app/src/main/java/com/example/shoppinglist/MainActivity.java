@@ -84,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
-        if (item.getItemId() == R.id.add_item){
+         if (item.getItemId() == R.id.map){
+            Intent intent = new Intent(this,ShoppingMapsActivity.class);
+            startActivity(intent);
+        }
+        else if (item.getItemId() == R.id.add_item){
             Intent intent = new Intent(this,AddItemActivity.class);
             startActivity(intent);
         }
