@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.shoppinglist.databinding.ActivityMainBinding;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.util.ArrayList;
 
@@ -99,6 +100,12 @@ public class MainActivity extends AppCompatActivity {
         else if (item.getItemId() == R.id.shoppingList){
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
+        }
+        else if (item.getItemId() == R.id.signOutm){
+                FirebaseAuth.getInstance().signOut();
+                Intent intent =new Intent(getApplicationContext(),Login.class);
+                startActivity(intent);
+                finish();
         }
 
         return super.onOptionsItemSelected(item);
