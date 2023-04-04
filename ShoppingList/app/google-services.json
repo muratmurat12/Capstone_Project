@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1014355063106",
+    "project_id": "login-shopp",
+    "storage_bucket": "login-shopp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1014355063106:android:51c2c77446f209b01dd8db",
+        "android_client_info": {
+          "package_name": "com.example.shoppinglist"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1014355063106-2na5a5a16v6jhcvop5kjofkdomk6lmlf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA-Z0TTfAkpO3jOEvjdMoCwbwQ4bXis8Ek"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1014355063106-2na5a5a16v6jhcvop5kjofkdomk6lmlf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
