@@ -93,6 +93,10 @@ public class MainActivity extends AppCompatActivity {
              Intent intent = new Intent(this,PoundsConverter.class);
              startActivity(intent);
          }
+          else if (item.getItemId() == R.id.calendarid){
+             Intent intent = new Intent(this,Calen.class);
+             startActivity(intent);
+         }
         else if (item.getItemId() == R.id.add_item){
             Intent intent = new Intent(this,AddItemActivity.class);
             startActivity(intent);
