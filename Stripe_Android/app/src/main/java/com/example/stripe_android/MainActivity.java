@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -13,6 +14,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.stripe.android.paymentsheet.PaymentSheet;
+import com.stripe.android.paymentsheet.PaymentSheetResult;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -35,7 +37,11 @@ public class MainActivity extends AppCompatActivity {
         });
         paymentSheet = new PaymentSheet(this, onPaymentSheetResult());
     }
-    private void onPaymentSheetResult()
+    private void onPaymentSheetResult(final PaymentSheetResult paymentSheetResult){
+        if (paymentSheetResult instanceof PaymentSheetResult.Canceled){
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
+    }
 
     public void fetchApi(){
         RequestQueue queue = Volley.newRequestQueue(this);
