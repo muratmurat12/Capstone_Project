@@ -41,6 +41,13 @@ public class MainActivity extends AppCompatActivity {
         if (paymentSheetResult instanceof PaymentSheetResult.Canceled){
             Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
         }
+         if (paymentSheetResult instanceof PaymentSheetResult.Failed){
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
+          if (paymentSheetResult instanceof PaymentSheetResult.Completed){
+            Toast.makeText(this, "Canceled", Toast.LENGTH_SHORT).show();
+        }
+
     }
 
     public void fetchApi(){
