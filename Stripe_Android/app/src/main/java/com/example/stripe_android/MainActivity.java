@@ -32,12 +32,16 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        fetchApi();
         Button button = findViewById(R.id.pay_now);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (paymentIntentClientSecret != null)
                  paymentSheet.presentWithPaymentIntent(paymentIntentClientSecret,
                          new PaymentSheet.Configuration("ShoppingList",configuration));
+                else
+                    Toast.makeText(MainActivity.this, "API Loading .....", Toast.LENGTH_LONG).show();
             }
         });
         paymentSheet = new PaymentSheet(this,this::onPaymentSheetResult);
@@ -78,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                 
+                 error.printStackTrace();
             }
         }){
             protected Map<String, String> getParams(){
                 Map<String, String> paramV = new HashMap<>();
-                paramV.put("param", "abc");
+                paramV.put("authKey", "abc");
                 return paramV;
             }
         };
