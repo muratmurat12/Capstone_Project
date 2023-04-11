@@ -13,8 +13,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.stripe.android.PaymentConfiguration;
 import com.stripe.android.paymentsheet.PaymentSheet;
 import com.stripe.android.paymentsheet.PaymentSheetResult;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -32,10 +36,11 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                 paymentSheet.presentWithPaymentIntent(paymentIntentClientSecret,
+                         new PaymentSheet.Configuration("ShoppingList",configuration));
             }
         });
-        paymentSheet = new PaymentSheet(this, onPaymentSheetResult());
+        paymentSheet = new PaymentSheet(this,this::onPaymentSheetResult);
     }
     private void onPaymentSheetResult(final PaymentSheetResult paymentSheetResult){
         if (paymentSheetResult instanceof PaymentSheetResult.Canceled){
@@ -58,12 +63,22 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
+                            configuration = new PaymentSheet.CustomerConfiguration(
+                                    jsonObject.getString("customer"),
+                                    jsonObject.getString("ephemeralKey")
+                            );
+                            paymentIntentClientSecret = jsonObject.getString("paymentIntent");
+                                    PaymentConfiguration.init(getApplicationContext(),jsonObject.getString("publishableKey"));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-
+                 
             }
         }){
             protected Map<String, String> getParams(){
