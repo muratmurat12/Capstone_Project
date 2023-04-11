@@ -12,12 +12,16 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.stripe.android.paymentsheet.PaymentSheet;
 
 import java.util.HashMap;
 import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
+    PaymentSheet paymentSheet;
+    String paymentIntentClientSecret;
+    PaymentSheet.CustomerConfiguration configuration;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,11 +33,13 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        paymentSheet = new PaymentSheet(this, onPaymentSheetResult());
     }
+    private void onPaymentSheetResult()
 
     public void fetchApi(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url ="https://projects.vishnusivadas.com/testing/write.php";
+        String url ="https://api.jsonbin.io/v3/b/6435c73eace6f33a22093f79";
 
         StringRequest stringRequest = new StringRequest(Request.Method.POST, url,
                 new Response.Listener<String>() {
