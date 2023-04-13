@@ -110,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         }
           else if (item.getItemId() == R.id.payment){
-            Intent intent = new Intent(this,MainActivity.class);
+            Intent intent = new Intent(this,Payment.class);
             startActivity(intent);
         }
         else if (item.getItemId() == R.id.signOutm){
