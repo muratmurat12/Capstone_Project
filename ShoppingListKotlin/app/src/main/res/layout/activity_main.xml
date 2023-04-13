@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".presentation.MainActivity">
 
-  <androidx.recyclerview.widget.RecyclerView
+    <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_shop_list"
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -24,13 +24,10 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:clickable="true"
-        android:contentDescription="Add new shop item"
+        android:contentDescription="@string/add_shop_item_content_description"
         android:focusable="true"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:srcCompat="@drawable/ic_add" />
-
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
