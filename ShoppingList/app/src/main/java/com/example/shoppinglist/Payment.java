@@ -62,7 +62,7 @@ public class Payment extends AppCompatActivity {
 
     public void fetchApi(){
         RequestQueue queue = Volley.newRequestQueue(this);
-        //String url ="curl https://api.stripe.com/v1/charges -u sk_test_51MZzUpDyrcLl263SBjTcXI6SH0ABgWTDRQW1Aep5k05mCt4mc0yhxfj5vaAaYHGzOt40LiVgWNp4xozohlGRkl7U00qUC803KV";
+        
         String url ="https://api.jsonbin.io/v3/b/6435c73eace6f33a22093f79";
           // String url ="http://localhost:63343/stripe-android-api/index.php?_ijt=vnn7bf390g50krb3qbs61gkf0g&_ij_reload=RELOAD_ON_SAVE";
 
