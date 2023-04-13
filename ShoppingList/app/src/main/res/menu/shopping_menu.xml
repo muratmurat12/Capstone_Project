@@ -6,5 +6,6 @@
     <item android:id="@+id/add_item" android:title="Add Item"></item>
     <item android:id="@+id/favoritesPage" android:title="Favorites"></item>
     <item android:id="@+id/shoppingList" android:title="Shopping List"></item>
+    <item android:id="@+id/payment" android:title="Payment"></item>
     <item android:id="@+id/signOutm" android:title="Logout"></item>
 </menu>
