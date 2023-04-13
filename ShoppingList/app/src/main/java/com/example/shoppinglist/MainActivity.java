@@ -109,6 +109,10 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(this,MainActivity.class);
             startActivity(intent);
         }
+          else if (item.getItemId() == R.id.payment){
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+        }
         else if (item.getItemId() == R.id.signOutm){
                 FirebaseAuth.getInstance().signOut();
                 Intent intent =new Intent(getApplicationContext(),Login.class);
